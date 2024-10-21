@@ -1,0 +1,17 @@
+insert into regions (id, name) values (1, "Ilocos Region (Region I)");
+insert into regions (id, name) values (2, "Cagayan Valley (Region II)");
+insert into regions (id, name) values (3, "Central Luzon (Region III)");
+insert into regions (id, name) values (4, "CALABARZON (Region IV-A)");
+insert into regions (id, name) values (5, "Bicol Region (Region V)");
+insert into regions (id, name) values (6, "Western Visayas (Region VI)");
+insert into regions (id, name) values (7, "Central Visayas (Region VII)");
+insert into regions (id, name) values (8, "Eastern Visayas (Region VIII)");
+insert into regions (id, name) values (9, "Zamboanga Peninsula (Region IX)");
+insert into regions (id, name) values (10, "Northern Mindanao (Region X)");
+insert into regions (id, name) values (11, "Davao Region (Region XI)");
+insert into regions (id, name) values (12, "SOCCSKSARGEN (Region XII)");
+insert into regions (id, name) values (13, "National Capital Region (NCR)");
+insert into regions (id, name) values (14, "Cordillera Administrative Region (CAR)");
+insert into regions (id, name) values (15, "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)");
+insert into regions (id, name) values (16, "Caraga (Region XIII)");
+insert into regions (id, name) values (17, "MIMAROPA Region");
