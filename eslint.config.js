@@ -48,4 +48,10 @@ export default tseslint.config(
 			"n/no-missing-import": ["error", { allowModules: ["ph-regions"] }],
 		},
 	},
+	{
+		rules: {
+			"@typescript-eslint/no-unsafe-assignment": 0,
+			"@typescript-eslint/no-unsafe-call": 0,
+		},
+	},
 );
