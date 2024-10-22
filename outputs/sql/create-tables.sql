@@ -1,30 +1,30 @@
 CREATE TABLE regions (
-    id SMALLINT UNSIGNED NOT NULL,
+    id VARCHAR(36) NOT NULL,
     name VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE provinces (
-    id SMALLINT UNSIGNED NOT NULL,
+    id VARCHAR(36) NOT NULL,
     name VARCHAR(255) NOT NULL,
-    region_id SMALLINT UNSIGNED NOT NULL,
+    region_id VARCHAR(36) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE cities (
-    id SMALLINT UNSIGNED NOT NULL,
+    id VARCHAR(36) NOT NULL,
     name VARCHAR(255) NOT NULL,
-    region_id SMALLINT UNSIGNED NOT NULL,
-    province_id SMALLINT UNSIGNED,
+    region_id VARCHAR(36) NOT NULL,
+    province_id VARCHAR(36),
     is_municipality TINYINT(1) NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE barangays (
-    id SMALLINT UNSIGNED NOT NULL,
+    id VARCHAR(36) NOT NULL,
     name VARCHAR(255) NOT NULL,
-    region_id SMALLINT UNSIGNED NOT NULL,
-    city_id SMALLINT UNSIGNED,
-    province_id SMALLINT UNSIGNED,
+    region_id VARCHAR(36) NOT NULL,
+    city_id VARCHAR(36) NOT NULL,
+    province_id VARCHAR(36),
     PRIMARY KEY (id)
 );

@@ -1,70 +1,70 @@
 [
 	{
-		"id": 1,
+		"id": "bimgjhtj1lbn9558hqbewnw4bn8l4fi7285a",
 		"name": "Ilocos Region (Region I)"
 	},
 	{
-		"id": 2,
+		"id": "dg6b8qs9zu28wtvrxrhzwofhd4xi9dnzr6m7",
 		"name": "Cagayan Valley (Region II)"
 	},
 	{
-		"id": 3,
+		"id": "hor32htnlotfqq24o6dman7g3ebf38iiw1pk",
 		"name": "Central Luzon (Region III)"
 	},
 	{
-		"id": 4,
+		"id": "n573u4w0wtqf726nckwmvy9r6iyp0hkl7maa",
 		"name": "CALABARZON (Region IV-A)"
 	},
 	{
-		"id": 5,
+		"id": "pfqczavra9tuuwyx8d74dqjn7va98jde2bdv",
 		"name": "Bicol Region (Region V)"
 	},
 	{
-		"id": 6,
+		"id": "g9pycgkvz8gsxw8ehrs8hs2u8m4xm9ym695r",
 		"name": "Western Visayas (Region VI)"
 	},
 	{
-		"id": 7,
+		"id": "viw6yfrl5b53dd5p0ht131fhgkrdmzdle485",
 		"name": "Central Visayas (Region VII)"
 	},
 	{
-		"id": 8,
+		"id": "ygfdo3mvdj3f7vtn8e8l2v50pqnd6ecoxly9",
 		"name": "Eastern Visayas (Region VIII)"
 	},
 	{
-		"id": 9,
+		"id": "f584nyjsghu05hipqcx59w1of59fttyn5mu7",
 		"name": "Zamboanga Peninsula (Region IX)"
 	},
 	{
-		"id": 10,
+		"id": "q1lj8hie6k32w1clpw5len4x39ibe6eauizh",
 		"name": "Northern Mindanao (Region X)"
 	},
 	{
-		"id": 11,
+		"id": "nascqfyglko4zs0zpl30tewnn6gl3qst2bw2",
 		"name": "Davao Region (Region XI)"
 	},
 	{
-		"id": 12,
+		"id": "k7fa68z5p089sb87k6vdkpqdfe2cx6xl3tu8",
 		"name": "SOCCSKSARGEN (Region XII)"
 	},
 	{
-		"id": 13,
+		"id": "fameuaegh7iqxli5zfazndyv8rmuvbz2t8wg",
 		"name": "National Capital Region (NCR)"
 	},
 	{
-		"id": 14,
+		"id": "c2989hnspcq3ppiveoo4jsbm9oaz3xovw102",
 		"name": "Cordillera Administrative Region (CAR)"
 	},
 	{
-		"id": 15,
+		"id": "il81pc108zpkp8h6o11i9v5zgd3ts48loums",
 		"name": "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)"
 	},
 	{
-		"id": 16,
+		"id": "lw9o8l64e8atp4yyszfi7bai6imquhn5wonm",
 		"name": "Caraga (Region XIII)"
 	},
 	{
-		"id": 17,
+		"id": "pzmpmxmzsy1riojtail8ipwny2bdo52mj3th",
 		"name": "MIMAROPA Region"
 	}
 ]

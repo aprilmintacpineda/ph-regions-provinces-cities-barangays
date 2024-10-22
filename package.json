@@ -8,6 +8,7 @@
 	},
 	"license": "MIT",
 	"author": {
+		"name": "April Mintac Pineda",
 		"email": "aprilmintacpineda@gmail.com"
 	},
 	"type": "module",
@@ -23,12 +24,14 @@
 		"format": "prettier .",
 		"lint": "eslint . --max-warnings 0",
 		"prepare": "husky",
+		"start": "tsx src/index.ts",
 		"tsc": "tsc"
 	},
 	"lint-staged": {
 		"*": "prettier --ignore-unknown --write"
 	},
 	"dependencies": {
+		"@paralleldrive/cuid2": "^2.2.2",
 		"jsdom": "^25.0.1",
 		"node-fetch": "^3.3.2"
 	},

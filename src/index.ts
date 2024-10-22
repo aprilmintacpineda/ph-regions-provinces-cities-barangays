@@ -1,6 +1,9 @@
+import { init } from "@paralleldrive/cuid2";
 import fs from "fs/promises";
 import { JSDOM } from "jsdom";
 import fetch from "node-fetch";
+
+export const generateId = init({ length: 36 });
 
 async function scrape(link: string) {
 	const response = await fetch(link);
@@ -52,27 +55,27 @@ async function scrape(link: string) {
 
 interface JSONOutput {
 	regions: Array<{
-		id: number;
+		id: string;
 		name: string;
 	}>;
 	provinces: Array<{
-		id: number;
+		id: string;
 		name: string;
-		region_id: number;
+		region_id: string;
 	}>;
 	cities: Array<{
-		id: number;
+		id: string;
 		name: string;
-		region_id: number;
-		province_id: number | null;
+		region_id: string;
+		province_id: string | null;
 		is_municipality: boolean;
 	}>;
 	barangays: Array<{
-		id: number;
+		id: string;
 		name: string;
-		region_id: number;
-		city_id: number | null;
-		province_id: number | null;
+		region_id: string;
+		city_id: string | null;
+		province_id: string | null;
 	}>;
 }
 
@@ -98,15 +101,11 @@ async function main() {
 		barangays: [],
 	};
 
-	let regionId = 0;
-	let provinceId = 0;
-	let cityId = 0;
-	let barangayId = 0;
-
+	const now = new Date().toISOString();
 	const regions = await scrape("https://www.philatlas.com/regions.html");
 	await Promise.all(
 		regions.map(async (region) => {
-			regionId++;
+			const regionId = generateId();
 
 			jsonOutput.regions.push({
 				id: regionId,
@@ -114,7 +113,7 @@ async function main() {
 			});
 
 			sqlOutput.regions.push(
-				`insert into regions (id, name) values (${regionId}, "${region.name}");`,
+				`("${regionId}", "${region.name}", "${now}", "${now}")`,
 			);
 
 			const provinces = await scrape(region.nextLink);
@@ -122,7 +121,7 @@ async function main() {
 			await Promise.all(
 				provinces.map(async (province) => {
 					if (province.type === "province") {
-						provinceId++;
+						const provinceId = generateId();
 
 						jsonOutput.provinces.push({
 							id: provinceId,
@@ -131,14 +130,14 @@ async function main() {
 						});
 
 						sqlOutput.provinces.push(
-							`insert into provinces (id, name, region_id) values (${provinceId}, "${province.name}", ${regionId});`,
+							`("${provinceId}", "${province.name}", "${regionId}", "${now}", "${now}")`,
 						);
 
 						const cities = await scrape(province.nextLink);
 
 						await Promise.all(
 							cities.map(async (city) => {
-								cityId++;
+								const cityId = generateId();
 
 								jsonOutput.cities.push({
 									id: cityId,
@@ -149,13 +148,13 @@ async function main() {
 								});
 
 								sqlOutput.cities.push(
-									`insert into cities (id, name, region_id, province_id, is_municipality) values (${cityId}, "${city.name}", ${regionId}, ${provinceId}, ${city.type === "municipality"});`,
+									`("${cityId}", "${city.name}", "${regionId}", "${provinceId}", ${city.type === "municipality"}, "${now}", "${now}")`,
 								);
 
-								const barangays = await scrape(province.nextLink);
+								const barangays = await scrape(city.nextLink);
 
 								barangays.forEach((barangay) => {
-									barangayId++;
+									const barangayId = generateId();
 
 									jsonOutput.barangays.push({
 										id: barangayId,
@@ -166,13 +165,13 @@ async function main() {
 									});
 
 									sqlOutput.barangays.push(
-										`insert into barangays (id, name, region_id, city_id, province_id) values (${barangayId}, "${barangay.name}", ${regionId}, ${cityId}, ${provinceId});`,
+										`("${barangayId}", "${barangay.name}", "${regionId}", "${cityId}", "${provinceId}", "${now}", "${now}")`,
 									);
 								});
 							}),
 						);
 					} else {
-						cityId++;
+						const cityId = generateId();
 
 						jsonOutput.cities.push({
 							id: cityId,
@@ -183,13 +182,13 @@ async function main() {
 						});
 
 						sqlOutput.cities.push(
-							`insert into cities (id, name, region_id, province_id, is_municipality) values (${cityId}, "${province.name}", ${regionId}, NULL, ${province.type === "municipality"});`,
+							`("${cityId}", "${province.name}", "${regionId}", NULL, ${province.type === "municipality"}, "${now}", "${now}")`,
 						);
 
 						const barangays = await scrape(province.nextLink);
 
 						barangays.forEach((barangay) => {
-							barangayId++;
+							const barangayId = generateId();
 
 							jsonOutput.barangays.push({
 								id: barangayId,
@@ -200,7 +199,7 @@ async function main() {
 							});
 
 							sqlOutput.barangays.push(
-								`insert into barangays (id, name, region_id, city_id, province_id) values (${barangayId}, "${barangay.name}", ${regionId}, ${cityId}, NULL);`,
+								`("${barangayId}", "${barangay.name}", "${regionId}", "${cityId}", NULL, "${now}", "${now}")`,
 							);
 						});
 					}
@@ -229,10 +228,22 @@ async function main() {
 		),
 
 		// sql outputs
-		fs.writeFile("./outputs/sql/regions.sql", sqlOutput.regions.join("\n")),
-		fs.writeFile("./outputs/sql/provinces.sql", sqlOutput.provinces.join("\n")),
-		fs.writeFile("./outputs/sql/cities.sql", sqlOutput.cities.join("\n")),
-		fs.writeFile("./outputs/sql/barangays.sql", sqlOutput.barangays.join("\n")),
+		fs.writeFile(
+			"./outputs/sql/regions.sql",
+			`insert into regions (id, name, created_at, updated_at) values ${sqlOutput.regions.join(",")};`,
+		),
+		fs.writeFile(
+			"./outputs/sql/provinces.sql",
+			`insert into provinces (id, name, region_id, created_at, updated_at) values ${sqlOutput.provinces.join(",")};`,
+		),
+		fs.writeFile(
+			"./outputs/sql/cities.sql",
+			`insert into cities (id, name, region_id, province_id, is_municipality, created_at, updated_at) values ${sqlOutput.cities.join(",")};`,
+		),
+		fs.writeFile(
+			"./outputs/sql/barangays.sql",
+			`insert into barangays (id, name, region_id, city_id, province_id, created_at, updated_at) values ${sqlOutput.barangays.join(",")};`,
+		),
 	]);
 
 	/**
@@ -240,7 +251,7 @@ async function main() {
 	 * Total of 17 regions.
 	 * Total of 81 provinces.
 	 * Total of 1,635 cities.
-	 * Total of 44,811 barangays.
+	 * Total of 42,091 barangays.
 	 */
 	console.log(`Total of ${sqlOutput.regions.length.toLocaleString()} regions.`);
 	console.log(

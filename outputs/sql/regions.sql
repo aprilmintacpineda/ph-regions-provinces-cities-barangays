@@ -1,17 +1,1 @@
-insert into regions (id, name) values (1, "Ilocos Region (Region I)");
-insert into regions (id, name) values (2, "Cagayan Valley (Region II)");
-insert into regions (id, name) values (3, "Central Luzon (Region III)");
-insert into regions (id, name) values (4, "CALABARZON (Region IV-A)");
-insert into regions (id, name) values (5, "Bicol Region (Region V)");
-insert into regions (id, name) values (6, "Western Visayas (Region VI)");
-insert into regions (id, name) values (7, "Central Visayas (Region VII)");
-insert into regions (id, name) values (8, "Eastern Visayas (Region VIII)");
-insert into regions (id, name) values (9, "Zamboanga Peninsula (Region IX)");
-insert into regions (id, name) values (10, "Northern Mindanao (Region X)");
-insert into regions (id, name) values (11, "Davao Region (Region XI)");
-insert into regions (id, name) values (12, "SOCCSKSARGEN (Region XII)");
-insert into regions (id, name) values (13, "National Capital Region (NCR)");
-insert into regions (id, name) values (14, "Cordillera Administrative Region (CAR)");
-insert into regions (id, name) values (15, "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)");
-insert into regions (id, name) values (16, "Caraga (Region XIII)");
-insert into regions (id, name) values (17, "MIMAROPA Region");
+insert into regions (id, name, created_at, updated_at) values ("bimgjhtj1lbn9558hqbewnw4bn8l4fi7285a", "Ilocos Region (Region I)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("dg6b8qs9zu28wtvrxrhzwofhd4xi9dnzr6m7", "Cagayan Valley (Region II)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("hor32htnlotfqq24o6dman7g3ebf38iiw1pk", "Central Luzon (Region III)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("n573u4w0wtqf726nckwmvy9r6iyp0hkl7maa", "CALABARZON (Region IV-A)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("pfqczavra9tuuwyx8d74dqjn7va98jde2bdv", "Bicol Region (Region V)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("g9pycgkvz8gsxw8ehrs8hs2u8m4xm9ym695r", "Western Visayas (Region VI)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("viw6yfrl5b53dd5p0ht131fhgkrdmzdle485", "Central Visayas (Region VII)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("ygfdo3mvdj3f7vtn8e8l2v50pqnd6ecoxly9", "Eastern Visayas (Region VIII)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("f584nyjsghu05hipqcx59w1of59fttyn5mu7", "Zamboanga Peninsula (Region IX)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("q1lj8hie6k32w1clpw5len4x39ibe6eauizh", "Northern Mindanao (Region X)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("nascqfyglko4zs0zpl30tewnn6gl3qst2bw2", "Davao Region (Region XI)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("k7fa68z5p089sb87k6vdkpqdfe2cx6xl3tu8", "SOCCSKSARGEN (Region XII)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("fameuaegh7iqxli5zfazndyv8rmuvbz2t8wg", "National Capital Region (NCR)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("c2989hnspcq3ppiveoo4jsbm9oaz3xovw102", "Cordillera Administrative Region (CAR)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("il81pc108zpkp8h6o11i9v5zgd3ts48loums", "Bangsamoro Autonomous Region in Muslim Mindanao (BARMM)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("lw9o8l64e8atp4yyszfi7bai6imquhn5wonm", "Caraga (Region XIII)", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z"),("pzmpmxmzsy1riojtail8ipwny2bdo52mj3th", "MIMAROPA Region", "2024-10-22T06:12:59.010Z", "2024-10-22T06:12:59.010Z");
